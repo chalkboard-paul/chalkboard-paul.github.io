@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title and page.url != "/" %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-name" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <nav class="nav" aria-label="Main">
+        {% assign on_portfolio = false %}
+        {% if page.url == "/" or page.collection == "projects" %}{% assign on_portfolio = true %}{% endif %}
+        <a href="{{ '/' | relative_url }}"{% if on_portfolio %} aria-current="page"{% endif %}>Portfolio</a>
+        <a href="{{ '/about/' | relative_url }}"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    {{ content }}
+  </main>
+
+  {% if page.url == "/" %}
+  <script src="{{ '/assets/js/filter.js' | relative_url }}"></script>
+  {% endif %}
+</body>
+</html>

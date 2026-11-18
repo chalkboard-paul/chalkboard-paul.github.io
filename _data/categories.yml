@@ -1,0 +1,9 @@
+# One entry per category. The colour drives the thumbnail border,
+# the small label and the filter button. Add a new category here
+# and use its name in a project's front matter.
+- name: Data
+  color: "#0b7a70"
+- name: Tableau
+  color: "#2f6fdb"
+- name: IRL
+  color: "#a8479b"

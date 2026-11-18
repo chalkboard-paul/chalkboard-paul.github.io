@@ -1,0 +1,21 @@
+title: Your Name
+description: A portfolio of data, Tableau and real-world projects.
+
+# Leave baseurl empty if this repo is named <your-username>.github.io
+baseurl: ""
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+
+exclude:
+  - README.md
+  - .gitignore

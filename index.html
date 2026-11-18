@@ -1,0 +1,56 @@
+---
+layout: default
+title: Portfolio
+permalink: /
+---
+<h1 class="page-title">Portfolio</h1>
+
+{% assign all_tags = site.projects | map: "tags" | join: "," | split: "," | uniq | sort_natural %}
+
+<section class="filters" aria-label="Filters">
+  <div class="filter-row" role="group" aria-label="Filter by category">
+    <span class="filter-name">Category</span>
+    <button type="button" class="chip" data-filter="category" data-value="all" aria-pressed="true">All</button>
+    {% for cat in site.data.categories %}
+    <button type="button" class="chip" style="--cat: {{ cat.color }}" data-filter="category" data-value="{{ cat.name | downcase }}" aria-pressed="false">{{ cat.name }}</button>
+    {% endfor %}
+  </div>
+
+  {% if all_tags.size > 0 %}
+  <div class="filter-row" role="group" aria-label="Filter by tag">
+    <span class="filter-name">Tag</span>
+    <button type="button" class="chip" data-filter="tag" data-value="all" aria-pressed="true">All</button>
+    {% for tag in all_tags %}
+    <button type="button" class="chip" data-filter="tag" data-value="{{ tag | downcase }}" aria-pressed="false">{{ tag }}</button>
+    {% endfor %}
+  </div>
+  {% endif %}
+</section>
+
+{% comment %} Newest first. Projects with no project_date sort to the end. {% endcomment %}
+{% assign projects = site.projects | sort: "project_date" | reverse %}
+
+<ul class="grid" id="grid">
+  {% for project in projects %}
+  {% assign cat = site.data.categories | where: "name", project.category | first %}
+  {% if project.link %}
+    {% assign href = project.link %}
+    {% assign external = true %}
+  {% else %}
+    {% assign href = project.url | relative_url %}
+    {% assign external = false %}
+  {% endif %}
+  <li class="card" data-category="{{ project.category | downcase }}" data-tags="{{ project.tags | join: '|' | downcase }}">
+    <a class="card-link" href="{{ href }}"{% if external %} target="_blank" rel="noopener"{% endif %}>
+      <div class="thumb" style="--cat: {{ cat.color | default: '#5d6677' }}">
+        <img src="{{ project.thumbnail | relative_url }}" alt="" loading="lazy">
+        <span class="label">{{ project.category }}</span>
+      </div>
+      <h2 class="title">{{ project.title }}</h2>
+      {% if project.project_date %}<p class="date">{{ project.project_date | date: "%b %Y" }}</p>{% endif %}
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+
+<p id="empty" class="empty" hidden>No projects match these filters. Try choosing All.</p>
