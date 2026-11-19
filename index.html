@@ -1,11 +1,9 @@
 ---
 layout: default
-title: Portfolio
+title: Projects
 permalink: /
 ---
-<h1 class="page-title">Portfolio</h1>
-
-{% assign all_tags = site.projects | map: "tags" | join: "," | split: "," | uniq | sort_natural %}
+<h1 class="page-title">{{ site.title }}</h1>
 
 <section class="filters" aria-label="Filters">
   <div class="filter-row" role="group" aria-label="Filter by category">
@@ -16,12 +14,12 @@ permalink: /
     {% endfor %}
   </div>
 
-  {% if all_tags.size > 0 %}
-  <div class="filter-row" role="group" aria-label="Filter by tag">
-    <span class="filter-name">Tag</span>
+  {% if site.data.tags.size > 0 %}
+  <div class="filter-row" id="tag-row" role="group" aria-label="Filter by tag (choose one or more)">
+    <span class="filter-name">Tags</span>
     <button type="button" class="chip" data-filter="tag" data-value="all" aria-pressed="true">All</button>
-    {% for tag in all_tags %}
-    <button type="button" class="chip" data-filter="tag" data-value="{{ tag | downcase }}" aria-pressed="false">{{ tag }}</button>
+    {% for tag in site.data.tags %}
+    <button type="button" class="chip" data-filter="tag" data-value="{{ tag | downcase | escape }}" aria-pressed="false">{{ tag | escape }}</button>
     {% endfor %}
   </div>
   {% endif %}
@@ -40,7 +38,7 @@ permalink: /
     {% assign href = project.url | relative_url %}
     {% assign external = false %}
   {% endif %}
-  <li class="card" data-category="{{ project.category | downcase }}" data-tags="{{ project.tags | join: '|' | downcase }}">
+  <li class="card" data-category="{{ project.category | downcase }}" data-tags="{{ project.tags | join: '|' | downcase | escape }}">
     <a class="card-link" href="{{ href }}"{% if external %} target="_blank" rel="noopener"{% endif %}>
       <div class="thumb" style="--cat: {{ cat.color | default: '#5d6677' }}">
         <img src="{{ project.thumbnail | relative_url }}" alt="" loading="lazy">
