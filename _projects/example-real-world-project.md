@@ -1,7 +1,7 @@
 ---
 title: Example real-world project
 category: IRL
-tags: [Case study, Dashboard]
+tags: [Business]
 thumbnail: /assets/images/placeholder.svg
 ---
 This project has no `project_date`, so it shows no date and sorts to the end.
