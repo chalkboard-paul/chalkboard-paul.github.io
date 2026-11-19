@@ -94,7 +94,7 @@ main.wrap { padding-top: 40px; padding-bottom: 80px; }
 .thumb {
   position: relative;
   aspect-ratio: 16 / 9;
-  border-radius: 0 16px 0 16px;
+  border-radius: 0 26px 0 26px;
   overflow: hidden;
   background: var(--cat); /* fallback for browsers without colour-mix */
   background: linear-gradient(
@@ -117,7 +117,7 @@ main.wrap { padding-top: 40px; padding-bottom: 80px; }
   width: calc(100% - 8px);
   height: calc(100% - 8px);
   object-fit: cover;
-  border-radius: 0 12px 0 12px;
+  border-radius: 0 22px 0 22px;
   background: #e7eaf0;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
 }
