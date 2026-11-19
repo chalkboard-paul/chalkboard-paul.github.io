@@ -1,0 +1,11 @@
+---
+title: "Premier League 2025/26"
+category: Data
+tags: [Data viz, Sport]
+thumbnail: /assets/images/placeholder.svg
+embed_url: https://chalkboard-paul.github.io/animated-viz/
+embed_height: 700
+link: https://chalkboard-paul.github.io/animated-viz/
+link_text: Open full size
+---
+This is an unfinished project created as a test to set up my github site
