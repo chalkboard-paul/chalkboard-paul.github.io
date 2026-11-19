@@ -3,7 +3,7 @@ title: Possible Finishing Positions
 category: Tableau
 tags: [Data viz, Sport]
 project_date: 2026-05-24
-thumbnail: /assets/images/placeholder.svg
+thumbnail: /assets/images/Possible Finishing Positions.png
 tableau: PremierLeagueFinalDay/PossibleFinishingPositions
 tableau_width: 700
 tableau_height: 927
