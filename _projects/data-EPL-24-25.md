@@ -2,6 +2,7 @@
 title: "Premier League 2025/26"
 category: Data
 tags: [Data viz, Sport]
+project_date: 2026-11-17
 thumbnail: /assets/images/placeholder.svg
 embed_url: https://chalkboard-paul.github.io/animated-viz/
 embed_height: 700
