@@ -31,15 +31,8 @@ permalink: /
 <ul class="grid" id="grid">
   {% for project in projects %}
   {% assign cat = site.data.categories | where: "name", project.category | first %}
-  {% if project.link %}
-    {% assign href = project.link %}
-    {% assign external = true %}
-  {% else %}
-    {% assign href = project.url | relative_url %}
-    {% assign external = false %}
-  {% endif %}
   <li class="card" data-category="{{ project.category | downcase }}" data-tags="{{ project.tags | join: '|' | downcase | escape }}">
-    <a class="card-link" href="{{ href }}"{% if external %} target="_blank" rel="noopener"{% endif %}>
+    <a class="card-link" href="{{ project.url | relative_url }}">
       <div class="thumb" style="--cat: {{ cat.color | default: '#5d6677' }}">
         <img src="{{ project.thumbnail | relative_url }}" alt="" loading="lazy">
         <span class="label">{{ project.category }}</span>
