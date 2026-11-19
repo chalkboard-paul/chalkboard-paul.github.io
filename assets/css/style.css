@@ -33,7 +33,6 @@ a:focus-visible,
   gap: 16px;
   min-height: 64px;
 }
-.site-name { font-weight: 700; text-decoration: none; }
 .nav { display: flex; gap: 4px; }
 .nav a {
   padding: 8px 16px;
@@ -81,28 +80,52 @@ main.wrap { padding-top: 40px; padding-bottom: 80px; }
 .card[hidden] { display: none; }
 .card-link { display: block; text-decoration: none; }
 
+/* The thumbnail: a frame (4px) around the image, with a slight top-to-bottom
+   gradient. Corners: top-left and bottom-right square, the other two lightly
+   rounded. */
 .thumb {
   position: relative;
   aspect-ratio: 16 / 9;
-  border: 4px solid var(--cat);
-  border-radius: 18px;
+  padding: 4px;
+  border-radius: 0 10px 0 10px;
   overflow: hidden;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--cat) 88%, white),
+    color-mix(in srgb, var(--cat) 80%, black)
+  );
+}
+.thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0 6px 0 6px;
   background: #e7eaf0;
 }
-.thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
+/* The category label: same size for every category, flush in the top-left
+   corner, text left-aligned. Only its right edge is angled (slanting up
+   to the top right). */
 .label {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  padding: 2px 10px;
-  border-radius: 999px;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: 92px;
+  height: 26px;
+  padding: 0 0 0 10px;
   background: var(--cat);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
   color: #fff;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
 }
-.label-inline { position: static; display: inline-block; }
+.label-inline { position: static; flex: none; }
 
 .title { margin: 12px 4px 0; font-size: 1.05rem; line-height: 1.3; }
 .card-link:hover .title { text-decoration: underline; }
