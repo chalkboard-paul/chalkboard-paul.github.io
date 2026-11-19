@@ -13,11 +13,10 @@
 <body>
   <header class="site-header">
     <div class="wrap">
-      <a class="site-name" href="{{ '/' | relative_url }}">{{ site.title }}</a>
       <nav class="nav" aria-label="Main">
-        {% assign on_portfolio = false %}
-        {% if page.url == "/" or page.collection == "projects" %}{% assign on_portfolio = true %}{% endif %}
-        <a href="{{ '/' | relative_url }}"{% if on_portfolio %} aria-current="page"{% endif %}>Portfolio</a>
+        {% assign on_home = false %}
+        {% if page.url == "/" or page.collection == "projects" %}{% assign on_home = true %}{% endif %}
+        <a href="{{ '/' | relative_url }}"{% if on_home %} aria-current="page"{% endif %}>{{ site.home_label }}</a>
         <a href="{{ '/about/' | relative_url }}"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a>
       </nav>
     </div>
