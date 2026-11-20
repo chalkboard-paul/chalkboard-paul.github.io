@@ -4,6 +4,7 @@ category: Tableau
 tags: [Data viz, "Art & Culture"]
 project_date: 2026-07-11
 thumbnail: /assets/images/Gigs.png
+wide: true
 tableau: Gig6mNetwork/Gigs
 tableau_width: 700
 tableau_height: 927
