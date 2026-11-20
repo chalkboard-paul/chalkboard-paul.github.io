@@ -1,5 +1,5 @@
 :root {
-  --display: "Space Grotesk", "Figtree", system-ui, sans-serif;
+  --display: "Sora", "Figtree", system-ui, sans-serif;
   --bg: #f6f7f9;
   --surface: #ffffff;
   --ink: #1b2230;
@@ -138,7 +138,7 @@ main.wrap { padding-top: 40px; padding-bottom: 80px; }
   color: var(--muted);
 }
 .meta .date { margin: 0; }
-.tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; }
+.tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 0 auto; }
 
 /* Project page: banner runs edge to edge, title sits over the faded bottom */
 .banner {
