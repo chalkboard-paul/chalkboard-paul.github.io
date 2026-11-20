@@ -1,6 +1,6 @@
 ---
 title: Example real-world project
-category: IRL
+category: Other
 tags: [Business]
 thumbnail: /assets/images/placeholder.svg
 ---
