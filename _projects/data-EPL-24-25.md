@@ -5,7 +5,7 @@ tags: [Data viz, Sport]
 project_date: 2026-11-17
 thumbnail: /assets/images/EPL season.png
 embed_url: https://chalkboard-paul.github.io/animated-viz/
-embed_height: 700
+embed_height: 775
 link: https://chalkboard-paul.github.io/animated-viz/
 link_text: Open full size
 ---
