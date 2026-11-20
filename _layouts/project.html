@@ -2,65 +2,70 @@
 layout: default
 ---
 {% assign cat = site.data.categories | where: "name", page.category | first %}
-<article class="prose project">
+<article class="project">
   <a class="back" href="{{ '/' | relative_url }}">Back to {{ site.home_label }}</a>
-  <h1>{{ page.title }}</h1>
+
   <p class="meta">
     <span class="label label-inline" style="--cat: {{ cat.color | default: '#5d6677' }}">{{ page.category }}</span>
     {% if page.project_date %}<span class="date">{{ page.project_date | date: "%b %Y" }}</span>{% endif %}
+    {% if page.tags.size > 0 %}<span class="tag-list">{% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</span>{% endif %}
   </p>
-  {% if page.tags.size > 0 %}
-  <p class="tag-list">{% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</p>
-  {% endif %}
 
   {% if page.thumbnail %}
-  <div class="hero"><img src="{{ page.thumbnail | relative_url }}" alt=""></div>
+  <div class="banner">
+    <img src="{{ page.thumbnail | relative_url }}" alt="">
+    <div class="banner-title"><div class="wrap"><h1>{{ page.title }}</h1></div></div>
+  </div>
+  {% else %}
+  <h1 class="project-title">{{ page.title }}</h1>
   {% endif %}
 
-  <div class="project-text">
-    {{ content }}
-  </div>
-
-  {% if page.embed_url %}
-  <div class="embed">
-    <iframe src="{{ page.embed_url }}" title="{{ page.title }}" loading="lazy" style="height: {{ page.embed_height | default: 700 }}px"></iframe>
-  </div>
-  {% endif %}
-
-  {% if page.tableau %}
-  {% assign workbook = page.tableau | split: "/" | first %}
-  <div class="embed">
-    <div class="tableauPlaceholder" id="viz-{{ page.slug }}" style="position: relative">
-      <noscript><img alt="{{ page.title }}" src="https://public.tableau.com/static/images/{{ workbook | slice: 0, 2 }}/{{ page.tableau }}/1_rss.png" style="border: none"></noscript>
-      <object class="tableauViz" style="display:none;">
-        <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F">
-        <param name="embed_code_version" value="3">
-        <param name="site_root" value="">
-        <param name="name" value="{{ page.tableau }}">
-        <param name="tabs" value="no">
-        <param name="toolbar" value="yes">
-        <param name="static_image" value="https://public.tableau.com/static/images/{{ workbook | slice: 0, 2 }}/{{ page.tableau }}/1.png">
-        <param name="animate_transition" value="yes">
-        <param name="display_static_image" value="yes">
-        <param name="display_spinner" value="yes">
-        <param name="display_overlay" value="yes">
-        <param name="display_count" value="yes">
-        <param name="language" value="en-US">
-      </object>
+  <div class="prose project">
+    <div class="project-text">
+      {{ content }}
     </div>
-    <script>
-      (function () {
-        var div = document.getElementById("viz-{{ page.slug }}");
-        var viz = div.getElementsByTagName("object")[0];
-        viz.style.width = "{{ page.tableau_width | default: 700 }}px";
-        viz.style.height = "{{ page.tableau_height | default: 800 }}px";
-        var s = document.createElement("script");
-        s.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
-        viz.parentNode.insertBefore(s, viz);
-      })();
-    </script>
-  </div>
-  {% endif %}
 
-  {% if page.link %}<p><a href="{{ page.link }}" target="_blank" rel="noopener">{{ page.link_text | default: "Open the project" }}</a></p>{% endif %}
+    {% if page.embed_url %}
+    <div class="embed">
+      <iframe src="{{ page.embed_url }}" title="{{ page.title }}" loading="lazy" style="height: {{ page.embed_height | default: 700 }}px"></iframe>
+    </div>
+    {% endif %}
+
+    {% if page.tableau %}
+    {% assign workbook = page.tableau | split: "/" | first %}
+    <div class="embed">
+      <div class="tableauPlaceholder" id="viz-{{ page.slug }}" style="position: relative">
+        <noscript><img alt="{{ page.title }}" src="https://public.tableau.com/static/images/{{ workbook | slice: 0, 2 }}/{{ page.tableau }}/1_rss.png" style="border: none"></noscript>
+        <object class="tableauViz" style="display:none;">
+          <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F">
+          <param name="embed_code_version" value="3">
+          <param name="site_root" value="">
+          <param name="name" value="{{ page.tableau }}">
+          <param name="tabs" value="no">
+          <param name="toolbar" value="yes">
+          <param name="static_image" value="https://public.tableau.com/static/images/{{ workbook | slice: 0, 2 }}/{{ page.tableau }}/1.png">
+          <param name="animate_transition" value="yes">
+          <param name="display_static_image" value="yes">
+          <param name="display_spinner" value="yes">
+          <param name="display_overlay" value="yes">
+          <param name="display_count" value="yes">
+          <param name="language" value="en-US">
+        </object>
+      </div>
+      <script>
+        (function () {
+          var div = document.getElementById("viz-{{ page.slug }}");
+          var viz = div.getElementsByTagName("object")[0];
+          viz.style.width = "{{ page.tableau_width | default: 700 }}px";
+          viz.style.height = "{{ page.tableau_height | default: 800 }}px";
+          var s = document.createElement("script");
+          s.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
+          viz.parentNode.insertBefore(s, viz);
+        })();
+      </script>
+    </div>
+    {% endif %}
+
+    {% if page.link %}<p><a href="{{ page.link }}" target="_blank" rel="noopener">{{ page.link_text | default: "Open the project" }}</a></p>{% endif %}
+  </div>
 </article>
