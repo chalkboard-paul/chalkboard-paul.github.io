@@ -7,7 +7,7 @@ thumbnail: /assets/images/Gigs.png
 wide: true
 tableau: Gig6mNetwork/Gigs
 tableau_width: 1400
-tableau_height: 800
+tableau_height: 854
 link: https://public.tableau.com/app/profile/paul.griffiths/viz/Gig6mNetwork/Gigs
 link_text: View on Tableau Public
 ---
