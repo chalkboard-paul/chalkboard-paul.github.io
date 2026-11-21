@@ -7,7 +7,7 @@ thumbnail: /assets/images/Year Ahead Planning.png
 wide: true
 tableau: YearAheadEventsPlanningCalendar/YearAheadPlanning
 tableau_width: 1400
-tableau_height: 800
+tableau_height: 840
 link: https://public.tableau.com/app/profile/paul.griffiths/viz/YearAheadEventsPlanningCalendar/YearAheadPlanning
 link_text: View on Tableau Public
 ---
