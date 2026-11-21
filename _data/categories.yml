@@ -2,8 +2,8 @@
 # the small label and the filter button. Add a new category here
 # and use its name in a project's front matter.
 - name: Data
-  color: "#35599e"
+  color: "#3a0ca3"
 - name: Tableau
-  color: "#8c4472"
+  color: "#8c001a"
 - name: Other
-  color: "#1f6f66"
+  color: "#ff9000"
