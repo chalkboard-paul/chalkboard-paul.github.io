@@ -110,7 +110,7 @@ main.wrap { padding-top: 40px; padding-bottom: 80px; }
   /* Thin light line just inside the frame, a pale tint of the category colour.
      Make the 35% bigger for a lighter line, smaller for a stronger one.
      Change the 2px to make the line thicker or thinner. */
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--cat) 35%, #fff);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--cat) 45%, #fff);
   pointer-events: none;
 }
 
